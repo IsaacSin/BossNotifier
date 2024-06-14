@@ -218,8 +218,6 @@ namespace BossNotifier {
 
         // Get zone name by ID
         public static string GetZoneName(string zoneId) {
-            // Special case for ZoneGasStation because it's used in Customs and Shoreline
-            if (zoneId == "ZoneGasStation") return (Singleton<GameWorld>.Instance.LocationId == "bigmap") ? "New Gas Station" : "Gas Station";
             // Return zone name if found, otherwise clean up the zoneId
             if (zoneNames.ContainsKey(zoneId)) return zoneNames[zoneId];
 
