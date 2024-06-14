@@ -43,7 +43,7 @@ namespace BossNotifier {
             { WildSpawnType.bossKojaniy, "Shturman" },
             { WildSpawnType.bossBoar, "Kaban" },
             { WildSpawnType.gifter, "Santa Claus" },
-            { WildSpawnType.arenaFighterEvent, "Blood Hounds" },
+            { WildSpawnType.arenaFighterEvent, "Bloodhounds" },
             { WildSpawnType.crazyAssaultEvent, "Crazy Scavs" },
             { WildSpawnType.exUsec, "Rogues" },
             { WildSpawnType.bossKolontay, "Kollontay" },
@@ -54,45 +54,117 @@ namespace BossNotifier {
         public static readonly HashSet<string> pluralBosses = new HashSet<string>() {
             "Goons",
             "Cultists",
-            "Blood Hounds",
+            "Bloodhounds",
             "Crazy Scavs",
             "Rogues",
         };
         // Dictionary mapping zone IDs to names
         public static readonly Dictionary<string, string> zoneNames = new Dictionary<string, string>() {
-            {"ZoneScavBase", "Scav Base" },
-            {"ZoneDormitory", "Dormitory" },
-            {"ZoneGasStation", "Gas Station" },
-            {"ZoneTankSquare", "Old Construction" },
-            {"ZoneWade", "RUAF Roadblock" },
-            {"BotZone", "" },
-            {"ZoneCenterBot", "Center Floor 2" },
-            {"ZoneCenter", "Center Floor 1" },
-            {"ZoneOLI", "OLI" },
-            {"ZoneIDEA", "IDEA" },
-            {"ZoneGoshan", "Goshan" },
-            {"ZoneIDEAPark", "IDEA Parking" },
-            {"ZoneOLIPark", "OLI Parking" },
-            {"BotZoneFloor1", "Floor 1" },
-            {"BotZoneFloor2", "Floor 2" },
-            {"BotZoneBasement", "Basement" },
-            {"BotZoneGate1", "Gate 1" },
-            {"BotZoneGate2", "Gate 2" },
-            {"ZoneRailStrorage", "Rail Storage" },
-            {"ZonePTOR1", "White Knight" },
-            {"ZonePTOR2", "Black Pawn" },
-            {"ZoneBarrack", "Barracks" },
-            {"ZoneSubStorage", "Sub Storage Д" },
-            {"ZoneSubCommand", "Sub Command Д" },
-            {"ZoneForestGasStation", "Forest Gas Station" },
-            {"ZoneForestSpawn", "Forest" },
-            {"ZonePort", "Pier" },
-            {"ZoneSanatorium1", "Sanatorium West" },
-            {"ZoneSanatorium2", "Sanatorium East" },
-            {"ZoneMiniHouse", "Mini House" },
-            {"ZoneBrokenVill", "Broken Village" },
-            {"ZoneWoodCutter", "Wood Cutter" },
-            {"ZoneCard1", "Card 1" },
+            // Factory
+            { "BotZone", "" },
+            // Customs
+            { "ZoneBlockPost", "Military Checkpoint" },
+            { "ZoneBrige", "Bridge / Sniper Roadblock" },
+            { "ZoneCrossRoad", "Bus Station" },
+            { "ZoneCustoms", "Customs / Storage" }, // ZoneCustoms covers most of the area east of the river
+            { "ZoneDormitory", "Dorms" },
+            { "ZoneFactoryCenter", "Warehouse 4 / ZB-1012" },
+            { "ZoneFactorySide", "USEC Stash / ZB-1011" },
+            { "ZoneGasStation", "New Gas Station" },
+            { "ZoneOldAZS", "Old Gas Station" },
+            { "ZoneScavBase", "Fortress" },
+            { "ZoneTankSquare", "Old Construction" },
+            { "ZoneWade", "RUAF Roadblock" },
+            // Woods
+            { "ZoneBigRocks", "Mountain Stash" },
+            { "ZoneBrokenVill", "Sunken Village" },
+            { "ZoneClearVill", "Scav Town" },
+            { "ZoneHouse", "Scav House" },
+            { "ZoneMiniHouse", "Near USEC Checkpoint" },
+            { "ZoneRedHouse", "UN Roadblock" },
+            { "ZoneRoad", "RUAF Gate / EMERCOM Base" }, // Also on Interchange
+            { "ZoneScavBase2", "Scav Bunker" },
+            { "ZoneWoodCutter", "Sawmill" },
+            // Shoreline
+            { "ZoneBunker", "Bunker" },
+            { "ZoneBusStation", "Bus Station" },
+            { "ZoneForestGasStation", "Forest Near Gas Station" },
+            { "ZoneForestSpawn", "North Forest Road" },
+            { "ZoneForestTruck", "West Drone" },
+            // { "ZoneGasStation", "Gas Station" }, // Already on Customs
+            { "ZoneGreenHouses", "Cottages" },
+            { "ZoneMeteoStation", "Weather Station" },
+            { "ZonePassClose", "Road to Customs" },
+            { "ZonePort", "Pier" },
+            { "ZonePowerStation", "Power Station" },
+            { "ZoneRailWays", "Crane" },
+            { "ZoneSanatorium1", "Resort West" },
+            { "ZoneSanatorium2", "Resort East" },
+            { "ZoneSmuglers", "Smuggler's Path" },
+            { "ZoneStartVillage", "Village" },
+            { "ZoneTunnel", "Tunnel" },
+            { "ZoneIsland", "Scav Island" },
+            // Interchange
+            { "ZoneCenter", "Mall Second Floor" },
+            { "ZoneCenterBot", "Mall First/Second Floor" }, // ZoneCenterBot has spawns on first and second floor.
+            { "ZoneGoshan", "Goshan" },
+            { "ZoneIDEA", "IDEA" },
+            { "ZoneIDEAPark", "IDEA Parking Garage" },
+            { "ZoneOLI", "OLI" },
+            { "ZoneOLIPark", "OLI Parking Garage" },
+            // { "ZonePowerStation", "Power Station" }, // Already on Shoreline
+            { "ZoneTrucks", "OLI Loading Dock" },
+            // { "ZoneRoad", "Scav Camp" }, // Also on Woods
+            // The Lab
+            { "BotZoneBasement", "Technical Level" },
+            { "BotZoneFloor1", "First Level" },
+            { "BotZoneFloor2", "Second Level" },
+            { "BotZoneGate1", "Hangar Gate" },
+            { "BotZoneGate2", "Parking Gate" },
+            // Reserve
+            { "ZoneBarrack", "Black Bishop/Black Pawn Barracks" },
+            { "ZonePTOR1", "Black Knight Garage" },
+            { "ZonePTOR2", "White Knight Garage" },
+            { "ZoneRailStrorage", "Train Station / K Buildings" },
+            { "ZoneSubCommand", "Д2 Command Bunkers" },
+            { "ZoneSubStorage", "Д Warehouse Bunkers" },
+            // Lighthouse
+            { "Zone_Blockpost", "Water Treatment South Gate" },
+            { "Zone_Chalet", "Blue Resort Chalet" },
+            { "Zone_Containers", "Armored Train Yard" },
+            { "Zone_DestroyedHouse", "Near Landing Stage" },
+            { "Zone_Helicopter", "Water Treatment Helicopter" },
+            { "Zone_Island", "Lighthouse" },
+            { "Zone_LongRoad", "Long Road" },
+            { "Zone_Rocks", "Tennis USEC Chalet" },
+            { "Zone_RoofBeach", "Water Treatment Plant 1" },
+            { "Zone_RoofContainers", "Water Treatment Plant 2" },
+            { "Zone_RoofRocks", "Water Treatment Plant 3" },
+            { "Zone_TreatmentBeach", "Water Treatment Plant 1" },
+            { "Zone_TreatmentContainers", "Water Treatment Plant 2" },
+            { "Zone_TreatmentRocks", "Water Treatment Plant 3" },
+            { "Zone_Village", "Hillside Village" },
+            { "Zone_Bridge", "Convenience Store / Bridge" },
+            { "Zone_OldHouse", "Hermit Village" },
+            // Streets of Tarkov
+            { "ZoneCard1", "Cardinal Apartments" },
+            { "ZoneCarShowroom", "Lexos" },
+            { "ZoneCinema", "Cinema" },
+            { "ZoneClimova", "Klimov Mall" },
+            { "ZoneColumn", "Chek/Primorsky Intersection" },
+            { "ZoneConcordia_1", "Concordia" },
+            { "ZoneConcordiaParking", "Concordia Underground Parking" },
+            { "ZoneConstruction", "Construction" },
+            { "ZoneFactory", "Abandoned Factory" },
+            { "ZoneHotel_1", "Pinewood Hotel South" },
+            { "ZoneHotel_2", "Pinewood Hotel North" },
+            { "ZoneMvd", "MVD Academy" },
+            { "ZoneStilo", "Stylobate Building / Klimov Mall" },
+            { "ZoneSW00", "Zmeisky Alley West" },
+            { "ZoneSW01", "Zmeisky Alley East" },
+            // Ground Zero
+            { "ZoneSandbox", "" }
+
         };
 
         private void Awake() {
@@ -146,6 +218,8 @@ namespace BossNotifier {
 
         // Get zone name by ID
         public static string GetZoneName(string zoneId) {
+            // Special case for ZoneGasStation because it's used in Customs and Shoreline
+            if (zoneId == "ZoneGasStation") return (Singleton<GameWorld>.Instance.LocationId == "bigmap") ? "New Gas Station" : "Gas Station";
             // Return zone name if found, otherwise clean up the zoneId
             if (zoneNames.ContainsKey(zoneId)) return zoneNames[zoneId];
 
